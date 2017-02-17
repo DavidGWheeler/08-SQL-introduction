@@ -1,12 +1,12 @@
 'use strict';
-// [x] DONE: Install and require the Node postgres package 'pg' into your server.js, and ensure that it's now a new dependency in your package.json
+// [x]DONE: Install and require the Node postgres package 'pg' into your server.js, and ensure that it's now a new dependency in your package.json
 const pg = require('pg');
 const express = require('express');
 // REVIEW: Require in body-parser for post requests in our server
 const bodyParser = require('body-parser');
 const PORT = process.env.PORT || 3000;
 const app = express();
-// DONE: Complete the connection string for the url that will connect to your local postgres database
+// [x]DONE: Complete the connection string for the url that will connect to your local postgres database
 // Windows and Linux users; You should have retained the user/pw from the pre-work for this course.
 // Your url may require that it's composed of additional information including user and password7
 // NOTE: Students will have varying URLs depending on their OS
