@@ -6,7 +6,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const PORT = process.env.PORT || 3000;
 const app = express();
-// TODO: Complete the connection string for the url that will connect to your local postgres database
+// DONE: Complete the connection string for the url that will connect to your local postgres database
 // Windows and Linux users; You should have retained the user/pw from the pre-work for this course.
 // Your url may require that it's composed of additional information including user and password7
 // NOTE: Students will have varying URLs depending on their OS
@@ -70,15 +70,22 @@ app.post('/articles', function(request, response) {
 app.put('/articles/:id', function(request, response) {
   client.query(
     `UPDATE INTO
-    ARTICLES(title, author, "authorUrl", category, "publishedOn", body)`, // TODO: Write the SQL query to update an existing record
-    [] // TODO: Get each value from the request's body
+    ARTICLES(title, author, "authorUrl", category, "publishedOn", body)`, // [x]DONE: Write the SQL query to update an existing record
+    [
+      request.body.title,
+      request.body.author,
+      request.body.authorUrl,
+      request.body.category,
+      request.body.publishedOn,
+      request.body.body
+    ] // [x]DONE: Get each value from the request's body
   );
   response.send('update complete');
 });
 
 app.delete('/articles/:id', function(request, response) {
   client.query(
-    ``, // TODO: Write the SQL query to delete a record
+    `DELETE FROM articles WHERE id = ${this.id}`, // [X]DONEx: Write the SQL query to delete a record
     [request.params.id]
   );
   response.send('Delete complete');

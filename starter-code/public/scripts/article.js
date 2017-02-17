@@ -44,7 +44,7 @@ Article.prototype.toHtml = function() {
 /**
  * OVERVIEW of Article.loadAll
  * - This declares an anonymous function which will load all of the data of Article objects.
- * - Inputs: takes an input of rows from the following anonymous functions in order to organize the data into the appropriate location in the article.
+ * - Inputs: takes an input of rows from the following anonymous functions in order to organize the data into the appropriate locat};ion in the article.
  * - Outputs: outputs all rows of Articles.
  */
 Article.loadAll = function(rows) {
@@ -108,8 +108,9 @@ Article.fetchAll = function(callback) {
  * - Truncates (deletes) the the data in the SQL table.
  * - Inputs: takes a param of "callback" from the if statment
  * - Outputs: a SQL command to delete all data from the table '/articles'
- Article.truncateTable = function(callback) {
  */
+
+Article.truncateTable = function(callback) {
   // DONE: uses a jQuery AJAX call to '/articles' in server.js with a method of 'DELETE'
   $.ajax({
     url: '/articles',
