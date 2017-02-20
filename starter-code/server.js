@@ -69,8 +69,9 @@ app.post('/articles', function(request, response) {
 
 app.put('/articles/:id', function(request, response) {
   client.query(
-    `UPDATE INTO
-    ARTICLES(title, author, "authorUrl", category, "publishedOn", body)`, // [x]DONE: Write the SQL query to update an existing record
+    UPDATE articles
+      SET title=$1, author=$2, "authorUrl"=$3, category=$4, "publishedOn"=$5
+      WHERE body=$6, // [x]DONE: Write the SQL query to update an existing record
     [
       request.body.title,
       request.body.author,
@@ -85,8 +86,8 @@ app.put('/articles/:id', function(request, response) {
 
 app.delete('/articles/:id', function(request, response) {
   client.query(
-    `DELETE FROM articles WHERE id = ${this.id}`, // [X]DONEx: Write the SQL query to delete a record
-    [request.params.id]
+    `DELETE FROM articles WHERE article_id=$1;`, // [X]DONEx: Write the SQL query to delete a record
+    [request.params.ARTICLE_id]
   );
   response.send('Delete complete');
 });
